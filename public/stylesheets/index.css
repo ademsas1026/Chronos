@@ -107,6 +107,7 @@
 }
 #navBar #leftNav #loggedIn {
   display: flex;
+  font-size: 1.5em;
 }
 #navBar #leftNav #loggedIn #goHome {
   margin-left: 0.5vw;
@@ -166,6 +167,10 @@
 }
 #navBar #leftNav #everythingButName #alwaysShow #categoriesInNav #allCategories #singleCategory {
   font-size: 1em;
+}
+#navBar #leftNav #everythingButName #pendingOrders {
+  font-size: 1.5em;
+  margin-left: 2vw;
 }
 #navBar #rightNav {
   margin: 6vh 0 0 75vw;
@@ -228,6 +233,11 @@
 
 #allProductsView #products .show-grid #singleProduct {
   margin: 2vw;
+}
+
+#userHome #welcomeMessage {
+  font-size: 2em;
+  margin: 10vh 0 0 10vw;
 }
 
 body {

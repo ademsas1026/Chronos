@@ -119,6 +119,7 @@ async function seed () {
 
   const usersCatalog = [
     {
+      firstName: 'The Doctor',
       email: 'the.doctor@who.com',
       password: 'knockKnock',
       salt: 'pepper',
@@ -126,6 +127,7 @@ async function seed () {
       isAdmin: true
     },
     {
+      firstName: 'River Song',
       email: 'river.song@who.com',
       password: 'spoilers',
       salt: 'pepper',
@@ -133,6 +135,7 @@ async function seed () {
       isAdmin: true
     },
     {
+      firstName: 'Amy',
       email: 'amy.pond@who.com',
       password: 'ginger',
       salt: 'pepper',
@@ -140,6 +143,7 @@ async function seed () {
       isAdmin: false
     },
     {
+      firstName: 'Clara',
       email: 'clara.oswald@who.com',
       password: 'theImpossibleGirl',
       salt: 'pepper',
