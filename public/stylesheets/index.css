@@ -50,10 +50,35 @@
   flex-direction: column;
   align-self: center;
 }
+#allLoginSignupOptions #loginSignup h2 {
+  margin: 10vh 0 0 0;
+}
 #allLoginSignupOptions #loginSignup form {
   display: flex;
-  margin: 20vh 0 2vh 0vw;
+  margin: 15vh 0 2vh 0vw;
   align-self: center;
+}
+#allLoginSignupOptions #loginSignup form #emailInput {
+  font-size: 1.5em;
+  border-bottom: 0.01em solid black;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  margin: -0.5vh 2vw 0 0;
+}
+#allLoginSignupOptions #loginSignup form #emailInput:focus {
+  outline: none;
+}
+#allLoginSignupOptions #loginSignup form #passwordInput {
+  font-size: 1.5em;
+  border-bottom: 0.01em solid black;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  margin: -0.5vh 2vw 0 0;
+}
+#allLoginSignupOptions #loginSignup form #passwordInput:focus {
+  outline: none;
 }
 #allLoginSignupOptions #OAuth {
   align-self: center;
