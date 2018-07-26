@@ -8,7 +8,6 @@ const findCart = async (Order, req, next) => {
     }
     //line below: if there is no user, can still have a cart. the visitor (doesn't have an account) won't be able to access this cart after this one session, though it will persist in the database
     if (req.cart) return next()
-    
 }
 
 module.exports = {
