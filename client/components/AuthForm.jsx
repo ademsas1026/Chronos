@@ -14,37 +14,28 @@ const AuthForm = props => {
   return (
     <div id="allLoginSignupOptions">
       <div id="loginSignup">
+        { displayName === 'Sign Up' &&
+          <h2>Welcome to Chronos! We're so happy you're here!</h2>
+        }
         <form
           onSubmit={handleSubmit}
           name={name}
           id="loginSignupForm"
         >
           <div>
-            <TextField
+            <input
               name="email"
               type="text"
               id="emailInput"
               placeholder="email"
-              style={{
-                      fontFamily: 'Lato, sansSerif',
-                      fontSize: '4em',
-                      margin: '-0.5vh 2vw 0 0',
-                      width: '20vw'
-                }}
               />
           </div>
           <div>
-            <TextField 
+            <input
               name="password"
               type="password"
               id="passwordInput"
               placeholder="password"
-              style={{
-                      fontFamily: 'Lato, sansSerif',
-                      fontSize: '4em',
-                      margin: '-0.5vh 2vw 0 0',
-                      width: '20vw'
-                }}
               />
           </div>
           <div>

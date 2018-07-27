@@ -21,6 +21,7 @@
     
     #loggedIn {
       display: flex;
+      font-size: 1.5em;
       #goHome {
         margin-left: 0.5vw;
         transition: 0.5s ease-in-out;
@@ -81,6 +82,10 @@
             };
           };
         };
+      };
+      #pendingOrders {
+        font-size: 1.5em;
+        margin-left: 2vw;
       };
     };
   };

@@ -64,7 +64,7 @@ class Navbar extends Component {
                 </div>
               </div>
               {isLoggedIn && user.isAdmin && (
-                <Link to={'/orders/order-history/pending'}>pending orders</Link>
+                <Link to={'/orders/order-history/pending'} id="pendingOrders">pending orders</Link>
               )}
             </div>
           </div>

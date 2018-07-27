@@ -51,14 +51,6 @@ async function seed () {
       imgUrl: "https://dummyimage.com/400x400/ffecdb/000000.jpg&text=Trump's+Last+Day+In+Office"
     },
     {
-      title: 'Read a Story',
-      price: 20500.00,
-      description:
-        "A long, long time ago in a spiky, spiky galaxy ... After leaving the frantic planet Earth, a group of people fly toward a distant speck. The speck gradually resolves into a large, e-commerce web app. Civil war strikes the galaxy, which is ruled by Donald Trump, an evil gremlin capable of gluttony and terrifying violence. Terrified, a powerful woman known as Time Traveler flees the Empire, with her protector, Chronos. They head for New York on the planet Gracius Hopperus. When they finally arrive, a fight breaks out. Chronos uses his spicy arrow to defend Time. Chronos and Lady Time decide it's time to leave Gracius Hopperus and steal a tandem to shoot their way out. They encounter a tribe of men. Time Traveler is attacked and captured by the men and taken back to New York. Chronos must fight to save Lady Time but when he accidentally unearths a deprecated method, the entire future of the spiky, frantic galaxy is at stake.",
-      quantity: 2,
-      imgUrl: 'https://dummyimage.com/400x400/fdebff/000000.jpg&text=A+Beautiful+and+Heartbreaking+Story'
-    },
-    {
       title: 'Yesterday',
       price: 100.50,
       description: 'All my troubles seemed so far away ...',
@@ -119,6 +111,7 @@ async function seed () {
 
   const usersCatalog = [
     {
+      firstName: 'The Doctor',
       email: 'the.doctor@who.com',
       password: 'knockKnock',
       salt: 'pepper',
@@ -126,6 +119,7 @@ async function seed () {
       isAdmin: true
     },
     {
+      firstName: 'River Song',
       email: 'river.song@who.com',
       password: 'spoilers',
       salt: 'pepper',
@@ -133,6 +127,7 @@ async function seed () {
       isAdmin: true
     },
     {
+      firstName: 'Amy',
       email: 'amy.pond@who.com',
       password: 'ginger',
       salt: 'pepper',
@@ -140,6 +135,7 @@ async function seed () {
       isAdmin: false
     },
     {
+      firstName: 'Clara',
       email: 'clara.oswald@who.com',
       password: 'theImpossibleGirl',
       salt: 'pepper',

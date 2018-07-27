@@ -50,10 +50,35 @@
   flex-direction: column;
   align-self: center;
 }
+#allLoginSignupOptions #loginSignup h2 {
+  margin: 10vh 0 0 0;
+}
 #allLoginSignupOptions #loginSignup form {
   display: flex;
-  margin: 20vh 0 2vh 0vw;
+  margin: 15vh 0 2vh 0vw;
   align-self: center;
+}
+#allLoginSignupOptions #loginSignup form #emailInput {
+  font-size: 1.5em;
+  border-bottom: 0.01em solid black;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  margin: -0.5vh 2vw 0 0;
+}
+#allLoginSignupOptions #loginSignup form #emailInput:focus {
+  outline: none;
+}
+#allLoginSignupOptions #loginSignup form #passwordInput {
+  font-size: 1.5em;
+  border-bottom: 0.01em solid black;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  margin: -0.5vh 2vw 0 0;
+}
+#allLoginSignupOptions #loginSignup form #passwordInput:focus {
+  outline: none;
 }
 #allLoginSignupOptions #OAuth {
   align-self: center;
@@ -82,6 +107,7 @@
 }
 #navBar #leftNav #loggedIn {
   display: flex;
+  font-size: 1.5em;
 }
 #navBar #leftNav #loggedIn #goHome {
   margin-left: 0.5vw;
@@ -141,6 +167,10 @@
 }
 #navBar #leftNav #everythingButName #alwaysShow #categoriesInNav #allCategories #singleCategory {
   font-size: 1em;
+}
+#navBar #leftNav #everythingButName #pendingOrders {
+  font-size: 1.5em;
+  margin-left: 2vw;
 }
 #navBar #rightNav {
   margin: 6vh 0 0 75vw;
@@ -203,6 +233,11 @@
 
 #allProductsView #products .show-grid #singleProduct {
   margin: 2vw;
+}
+
+#userHome #welcomeMessage {
+  font-size: 2em;
+  margin: 10vh 0 0 10vw;
 }
 
 body {
