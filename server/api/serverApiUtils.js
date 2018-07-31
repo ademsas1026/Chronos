@@ -1,3 +1,5 @@
+const { Order, LineItem } = require('../db/models')
+
 // to find cart and assign to user
 const findCart = async (Order, req, next) => {
     req.cart = await Order.findById(req.session.cart.id).catch(next)
@@ -10,7 +12,69 @@ const findCart = async (Order, req, next) => {
     if (req.cart) return next()
 }
 
+
+const authorize = (req, res, next) => {
+  if (req.user.isAdmin === true)
+    return next()
+  else
+    res.sendStatus(401)
+}
+
+const userLineItem = async (userId, product, quantityToAdd) => {
+  const [order, wasCreated] = await Order.findOrCreate({
+    where: {
+      userId,
+      status: 'cart'
+    },
+    defaults: {
+      userId,
+      status: 'cart'
+    }
+  })
+  let [newLineItem, created] = await LineItem.findOrCreate({
+    where: {
+      orderId: order.id,
+      productId: product.id
+    },
+    defaults: {
+      quantity: quantityToAdd,
+      price: product.price,
+      productId: product.id,
+      orderId: order.id
+    }
+  })
+  return [ newLineItem, created ]
+}
+
+const sessionLineItem = product => {
+	return {
+		productId: product.id,
+		quantity: 1,
+		price: product.price
+	}
+}
+
+const updateLineItem = async (newLineItem, req) => {
+  newLineItem = await newLineItem.update({
+    quantity: newLineItem.quantity += +req.body.quantityToAdd
+  })
+  req.session.cart = req.session.cart
+    ? req.session.cart.filter(entry => entry.productId !== newLineItem.productId)
+    : req.session.cart
+}
+
+const updateCart = (newLineItem, req) => {
+  req.session.cart
+      ? req.session.cart.push(newLineItem, req)
+      : req.session.cart = [newLineItem]
+}
+
 module.exports = {
-  findCart
+  findCart,
+  authorize,
+  userLineItem,
+  sessionLineItem,
+  updateLineItem,
+  updateCart
 }
 

@@ -1,11 +1,11 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button, FormGroup, FormControl } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Button, FormGroup, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import { EditProduct } from './index';
+import { EditProduct, AddToCartButton } from './index';
 import { fetchOneProduct, addToCart, removeFromCart } from '../store';
 
 /* ---- Component ---- */
@@ -52,7 +52,8 @@ class SingleProduct extends Component {
                   <FormControl type="text" value={quantity} name="quantity" componentClass="select" onChange={this.onQuantityChange}>
                    { options.map(option => <option key={option} value={option}>{option}</option>)}
                   </FormControl>
-                  <span><Button id="addToCartBtn" onClick={addToCart.bind(this, product, quantity)} disabled={disabled}>Add {quantity}</Button></span>
+                  <span><AddToCartButton product={product} quantity={quantity} /></span>
+                  {/* <span><Button id="addToCartBtn" onClick={addToCart.bind(this, product, quantity)} disabled={disabled}>Add {quantity}</Button></span> */}
                   <span><Button id="removeFromCartBtn" onClick={removeFromCart.bind(this, product, quantity)}>Remove {quantity}</Button></span>
                   <Link to='/cart'>Go To Checkout</Link>
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loadCart } from '../store';
+import { fetchCart } from '../store';
 
 
 /* --- Component --- */
@@ -16,24 +16,24 @@ class Cart extends Component {
   }
 
   componentDidMount(){
-    this.props.loadCart();
+    this.props.fetchCart()
   }
 
   render () {
-    const { productsInCart } = this.props;
-    console.log('this.props in cart: ', this.props);
+    const { lineItems } = this.props
+    console.log('this.props in cart: ', this.props)
 
     return (
       <div id="cart">
         <h2> YOUR CART </h2>
       {
-        productsInCart && productsInCart.map((product) => (
-          <Col sm={10} md={4}  key={product.id} id="singleProduct">
-            <Link to={`/products/${product.id}`}>
-              <img id="shrink" src={product.imgUrl} />
-              <h5>{product.title}</h5>
-              <h5>$ {product.price}</h5>
-              <h1>{ product.lineItem.quantity }</h1>
+        lineItems && lineItems.map(lineItem => (
+          <Col sm={10} md={4} key={lineItem.id} id="singlelineItem">
+            <Link to={`/products/${lineItem.productId}`}>
+              <img id="shrink" src={lineItem.imgUrl} />
+              <h5>{lineItem.title}</h5>
+              <h5>$ {lineItem.price}</h5>
+              <h1>{ lineItem.quantity }</h1>
             </Link>
           </Col>
         ))
@@ -45,12 +45,12 @@ class Cart extends Component {
 
 
 /* ---- Container ---- */
-const mapState = state => ({productsInCart: state.cart});
+const mapState = state => ({lineItems: state.cart.cart})
 
 const mapDispatch = dispatch => ({
-  loadCart() {
-    dispatch(loadCart());
+  fetchCart() {
+    dispatch(fetchCart())
   }
-});
+})
 
-export default withRouter(connect(mapState, mapDispatch)(Cart));
+export default withRouter(connect(mapState, mapDispatch)(Cart))

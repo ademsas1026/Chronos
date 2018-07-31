@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { logout, loadCart, me } from '../store';
+import { logout, fetchCart, me } from '../store';
 import { AllCategories, Searchbar } from './index';
 
 /* ---- Component ---- */
@@ -19,7 +19,7 @@ class Navbar extends Component {
   }
 
   componentDidMount(){
-    this.props.loadCart();
+    this.props.fetchCart()
   }
 
   showCategories() {
@@ -27,10 +27,10 @@ class Navbar extends Component {
   }
 
   render() {
-    const { handleClick, isLoggedIn, productsInCart, user } = this.props;
+    const { handleClick, isLoggedIn, lineItems, user } = this.props
     const productQuantity =
-      productsInCart.length && productsInCart.map(product => product.lineItem.quantity)
-                                            .reduce((acc, val) => (acc + val), 0);
+      lineItems.length && lineItems.map(lineItem => lineItem.quantity)
+                                    .reduce((acc, val) => (acc + val), 0);
     return (
       <nav id="navBar">
         <div id="leftNav">
@@ -89,7 +89,7 @@ class Navbar extends Component {
 const mapState = state => ({
   isLoggedIn: !!state.user.id,
   categories: state.categories,
-  productsInCart: state.cart,
+  lineItems: state.cart.cart,
   user: state.user
 });
 
@@ -97,8 +97,8 @@ const mapDispatch = dispatch => ({
   handleClick() {
     dispatch(logout());
   },
-  loadCart() {
-    dispatch(loadCart());
+  fetchCart() {
+    dispatch(fetchCart());
   },
   loadUser() {
     dispatch(me());
