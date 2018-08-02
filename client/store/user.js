@@ -25,12 +25,12 @@ export const auth = (email, password, method) =>
   dispatch =>
     axios.post(`/auth/${method}`, { email, password })
       .then(res => {
-        dispatch(getUser(res.data));
-        history.push('/userhome');
+        dispatch(getUser(res.data))
+        history.push('/userhome')
       }, authError => { // rare example: a good use case for parallel (non-catch) error handler
-        dispatch(getUser({error: authError}));
+        dispatch(getUser({error: authError}))
       })
-      .catch(dispatchOrHistoryErr => console.error(dispatchOrHistoryErr));
+      .catch(dispatchOrHistoryErr => console.error(dispatchOrHistoryErr))
 
 export const logout = () =>
   dispatch =>

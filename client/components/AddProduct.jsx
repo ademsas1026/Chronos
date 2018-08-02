@@ -36,8 +36,7 @@ class AddProduct extends Component {
   }
 
   handleSubmit(event){
-    event.preventDefault();
-    console.log('categories', this.state.categories);
+    event.preventDefault()
     let { title, price, quantity, imgUrl, categories, description } = this.state;
     this.props.addProduct({ title, price, quantity, imgUrl, categories, description });
     // this.setState({ title: '', price: '', quantity: '', imgUrl: '', categories: '', description: ''})
@@ -94,7 +93,6 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
     addProduct(product) {
-        console.log('product in map dispatch add: ', product)
         const title = product.title;
         const price = product.price === '' ? 0.00 : product.price;
         const description = product.description;

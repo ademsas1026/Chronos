@@ -1,12 +1,12 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import { logout, fetchCart, me } from '../store';
-import { AllCategories, Searchbar } from './index';
+import { logout, fetchCart, me } from '../store'
+import { AllCategories, Searchbar } from './index'
 
 /* ---- Component ---- */
 class Navbar extends Component {
@@ -91,21 +91,21 @@ const mapState = state => ({
   categories: state.categories,
   lineItems: state.cart.cart,
   user: state.user
-});
+})
 
 const mapDispatch = dispatch => ({
   handleClick() {
-    dispatch(logout());
+    dispatch(logout())
   },
   fetchCart() {
-    dispatch(fetchCart());
+    dispatch(fetchCart())
   },
   loadUser() {
-    dispatch(me());
+    dispatch(me())
   }
-});
+})
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default withRouter(connect(mapState, mapDispatch)(Navbar))
 
 /* ---- Prop Types ---- */
 Navbar.propTypes = {

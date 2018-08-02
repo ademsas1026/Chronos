@@ -25,24 +25,19 @@ export const fetchOneProduct = function (productId){
 };
 
 export const addProduct = function (product){
-    console.log('categories in thunk: ', product.categories);
     return function thunk(dispatch){
         axios.post('/api/products', product)
-        .then(res => {
-            console.log('results from backend in front: ', res.data)
-            return res.data;
-        })
+        .then(res => res.data)
         .then(newProduct => {
-            console.log('new product', newProduct);
-            const action = getOneProduct(newProduct);
-            dispatch(action);
-            history.push(`/products/${newProduct.id}`);
+            const action = getOneProduct(newProduct)
+            dispatch(action)
+            history.push(`/products/${newProduct.id}`)
         })
         .catch(err => {
-            console.error(err);
-        });
-    };
-};
+            console.error(err)
+        })
+    }
+}
 
 export const editProduct = function (product) {
     return function thunk(dispatch){

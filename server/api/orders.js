@@ -45,7 +45,6 @@ router.get('/order-history/pending', authorize, async (req, res, next) => {
 router.get('/cart', async (req, res, next) => {
   try {
     if (req.user) {
-      console.log('this is req.user: ', req.user)
       const cart = await Order.findOne({
         where: {
           userId: req.user.id,
@@ -55,14 +54,9 @@ router.get('/cart', async (req, res, next) => {
           model: Product
         }]
       })
-      console.log('this is cart.products: ', cart.products)
       if (!cart) return res.json([])
-
-      if (!req.session.cart) {
-        console.log('this are the products on the users cart: ', cart.products)
-        req.session.cart = cart.products.map(product => product.lineItem)
-      }
-      if (req.session.cart) return res.json(req.session.cart)
+      req.session.cart = cart.products.map(product => product.lineItem)
+      return res.json(req.session.cart)
     }
   } catch (err){
     next(err)

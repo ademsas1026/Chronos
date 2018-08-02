@@ -48,7 +48,6 @@ export const fetchCart = () => async dispatch => {
   try {
     dispatch(loadingCart())
     const res = await axios.get('/api/orders/cart')
-    console.log('res in fetch Cart thunk: ', res)
     dispatch(getCartItems(res.data))
   } catch (err) {
     dispatch(cartError())
@@ -82,7 +81,6 @@ export const removeFromCart = product => async dispatch => {
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_CART_ITEMS:
-      console.log("in get cart items action: ", action)
       //action.cart here is an array of line items
       return {...state, cart: action.cart, isLoading: false, gotError: false}
     case UPDATE_CART:

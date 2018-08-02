@@ -8,7 +8,6 @@ const getOrderHistory = orderHistory => ({ type: GET_ORDER_HISTORY, orderHistory
 
 /* ---- Thunks ---- */
 export const getOrders = user => {
-  console.log('userinthunk', user)
   return function thunk(dispatch) {
     axios.get(`/api/users/${user.id}/order-history`)
       .then(res => res.data)

@@ -15,7 +15,6 @@ const assignCart = async (req, res, next) => {
   else {
     // 5 is the designated guest user id
     req.cart = await Order.create({where: { userId: 5, status: 'cart'}}).catch(next)
-    console.log('assigning cart to logged out user: ', req.cart)
   }
   req.session.cart = req.cart
   next()

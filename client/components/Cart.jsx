@@ -21,23 +21,17 @@ class Cart extends Component {
 
   render () {
     const { lineItems } = this.props
-    console.log('this.props in cart: ', this.props)
-
+    console.log('this is lineItems[0] from props: ', lineItems[0])
     return (
       <div id="cart">
         <h2> YOUR CART </h2>
-      {
-        lineItems && lineItems.map(lineItem => (
-          <Col sm={10} md={4} key={lineItem.id} id="singlelineItem">
-            <Link to={`/products/${lineItem.productId}`}>
-              <img id="shrink" src={lineItem.imgUrl} />
-              <h5>{lineItem.title}</h5>
-              <h5>$ {lineItem.price}</h5>
-              <h1>{ lineItem.quantity }</h1>
-            </Link>
-          </Col>
-        ))
-      }
+        <div className="portfolioWrapper grid-container"> 
+          {
+            lineItems && lineItems.map(lineItem => (
+              <LineItem lineItem={lineItem} />
+            ))
+          }
+        </div>
       </div>
     );
   }

@@ -83,11 +83,11 @@ const mapSignup = state => ({
 
 const mapDispatch = dispatch => ({
   handleSubmit(event) {
-    event.preventDefault();
-    const formName = event.target.name;
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    dispatch(auth(email, password, formName));
+    event.preventDefault()
+    const formName = event.target.name
+    const email = event.target.email.value
+    const password = event.target.password.value
+    dispatch(auth(email, password, formName))
   }
 })
 

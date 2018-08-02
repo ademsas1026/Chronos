@@ -100,8 +100,6 @@ const mapState = state => ({product: state.product});
 
 const mapDispatch = dispatch => ({
   editProduct: (newProduct, oldProduct) => {
-    console.log('old product: ', oldProduct);
-    console.log('new product: ', newProduct)
     newProduct.title = newProduct.title === '' ? oldProduct.title : newProduct.title;
     newProduct.price = newProduct.price === '' ? oldProduct.price : newProduct.price;
     newProduct.imgUrl = newProduct.imgUrl === '' ? oldProduct.imgUrl : newProduct.imgUrl;
